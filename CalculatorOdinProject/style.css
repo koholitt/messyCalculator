@@ -12,7 +12,8 @@
 }
 
 .number{
-    width: 13.7rem;
+    width: 15rem;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -20,10 +21,12 @@
 }
 
 button{
+    width: 3rem;
+    height: auto;
     padding: 1rem;
 }
 
 input{
     width: auto;
-    height: 1.5rem;
+    height: 1.7rem;
 }
