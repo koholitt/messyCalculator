@@ -5,21 +5,49 @@ buttons.forEach(btn =>{
     btn.addEventListener('click', e =>{
         let firstValue = null;
         let symbol = "";
-        let secondValue = 0;
-        console.log(e.target);
-
-        input.value += btn.textContent;
-
-        if((symbol != "") && (firstValue != null)){
-           secondValue = input.value;
-        }
+        let secondValue = null;
 
         if (isNaN(btn.textContent)){
-            firstValue = input.value;
-            input.value = btn.textContent;
-            symbol = input.value;
-        }
+            if((input.value == "=") && (firstValue != null) && (secondValue != null) && (symbol != "")){
 
-        // check if the input is empty / check if it's numeric / check if the "firstValue" is already in use
+            }
+
+
+
+            if((symbol != "") && (firstValue != null)){
+                secondValue = input.value;
+            }
+            else{
+                firstValue = input.value;
+                input.value = btn.textContent;
+                symbol = input.value;
+            }
+        }
+        else{
+            if(isNaN(input.value)){
+                input.value = "";
+                input.value = btn.textContent;
+            }
+            else{
+                input.value += btn.textContent;
+            }
+            
+        }
     });
 })
+
+function addition(value1, value2){
+    return value1 + value2;
+}
+
+function subtraction(value1, value2){
+    return value1 - value2;
+}
+
+function multiplication(value1, value2){
+    return value1 * value2;
+}
+
+function divition(value1, value2){
+    return value1 / value2;
+}
