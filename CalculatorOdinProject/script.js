@@ -4,34 +4,41 @@ const input = document.querySelector('input');
 let firstValue = null;
 let symbol = "";
 let secondValue = null;
+let total = null;
 
 buttons.forEach(btn =>{
     btn.addEventListener('click', e =>{
         if(isNaN(btn.textContent)){
+            if(btn.textContent == "C"){
+                 firstValue = null;
+                 symbol = "";
+                 secondValue = null;
 
-            if((btn.textContent == "=") && (firstValue != null) && (symbol != "")){
+                input.value = "";
+
+            }
+            else if((btn.textContent == "=") && (firstValue != null) && (symbol != "")){
                 if(!isNaN(input.value)){
                     secondValue = parseInt(input.value);
                     input.value = checkResult(firstValue,secondValue,symbol)
                 }
                 else{
-                    input.value = firstValue;
+                    input.value = total;
                 }
             }
             else if((symbol != "") && (firstValue != null)){
                 secondValue = parseInt(input.value);
-                firstValue = checkResult(firstValue,secondValue,symbol);
                 input.value = btn.textContent;
-                console.log(`first: ${firstValue}, second: ${secondValue}`);
+                total = checkResult(firstValue,secondValue,symbol);
+                symbol = input.value;
+                input.value = btn.textContent;
             }
             else{
-                if(!isNaN(input.value)){
+                if(!isNaN(input.value) && (total == null)){
                     firstValue = parseInt(input.value);
-                    console.log(`secon else: ${firstValue}`);
                 }
                 input.value = btn.textContent;
                 symbol = input.value;
-                console.log(`symbol: ${symbol}`);
             } 
         }
         else{
@@ -43,6 +50,7 @@ buttons.forEach(btn =>{
                 input.value += btn.textContent;
             }
         }
+            
     });
 })
 
