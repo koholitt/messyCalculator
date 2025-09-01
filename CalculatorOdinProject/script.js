@@ -73,5 +73,3 @@ function checkResult(value1, value2, symbol){
             console.log('ERROR');
     }
 }
-
-//add reset function that uses "C" and check for more unusal behavior, almost finished :) decimals??
