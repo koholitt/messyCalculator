@@ -10,22 +10,7 @@ buttons.forEach(btn =>{
         if (isNaN(btn.textContent)){
             if((btn.textContent == "=") && (firstValue != null) && (symbol != "")){
                 secondValue = input.value;
-                switch(symbol){
-                    case "+" :
-                         console.log(addition(parseInt(firstValue), parseInt(secondValue)));
-                         break;
-                    case "-":
-                        console.log(subtraction(parseInt(firstValue), parseInt(secondValue)));
-                        break;
-                    case "/":
-                        console.log(divition(parseInt(firstValue), parseInt(secondValue)));
-                        break;
-                    case "x":
-                        console.log(multiplication(parseInt(firstValue), parseInt(secondValue)));
-                        break;
-                    default:
-                        console.log('ERROR');
-                }
+
             }
             else{
                 firstValue = input.value;
@@ -52,18 +37,21 @@ buttons.forEach(btn =>{
     });
 })
 
-function addition(value1, value2){
-    return value1 + value2;
-}
-
-function subtraction(value1, value2){
-    return value1 - value2;
-}
-
-function multiplication(value1, value2){
-    return value1 * value2;
-}
-
-function divition(value1, value2){
-    return value1 / value2;
+function checkResult(value1, value2, symbol){
+    switch(symbol){
+        case "+" :
+           return value1 + value2; 
+            break;
+        case "-":
+            return value1 - value2;
+            break;
+        case "/":
+            return value1 / value2;
+            break;
+        case "x":
+            return value1 * value2;
+            break;
+        default:
+            console.log('ERROR');
+    }
 }
